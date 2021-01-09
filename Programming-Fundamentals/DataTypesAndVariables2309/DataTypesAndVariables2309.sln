@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTypesAndVariables2309", "DataTypesAndVariables2309\DataTypesAndVariables2309.csproj", "{D5244744-2306-43D3-BC58-36950E9D1A52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeterssToKilometers", "MeterssToKilometers\MeterssToKilometers.csproj", "{1574EF6B-018D-4E0E-8E22-B2C2EF1B6DDC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5244744-2306-43D3-BC58-36950E9D1A52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5244744-2306-43D3-BC58-36950E9D1A52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5244744-2306-43D3-BC58-36950E9D1A52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5244744-2306-43D3-BC58-36950E9D1A52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1574EF6B-018D-4E0E-8E22-B2C2EF1B6DDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1574EF6B-018D-4E0E-8E22-B2C2EF1B6DDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1574EF6B-018D-4E0E-8E22-B2C2EF1B6DDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1574EF6B-018D-4E0E-8E22-B2C2EF1B6DDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A46CA377-3D14-4A34-988A-BCA101875AE5}
+	EndGlobalSection
+EndGlobal

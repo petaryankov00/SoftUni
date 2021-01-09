@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomizeWords", "ObjectAndClasses2110\RandomizeWords.csproj", "{96F52B5A-9A12-4511-A7E3-16D2E7563FB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigFactorial", "BigFactorial\BigFactorial.csproj", "{85FF89A3-C0B1-4B57-8E2C-BC3E77E61873}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96F52B5A-9A12-4511-A7E3-16D2E7563FB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96F52B5A-9A12-4511-A7E3-16D2E7563FB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96F52B5A-9A12-4511-A7E3-16D2E7563FB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96F52B5A-9A12-4511-A7E3-16D2E7563FB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85FF89A3-C0B1-4B57-8E2C-BC3E77E61873}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85FF89A3-C0B1-4B57-8E2C-BC3E77E61873}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85FF89A3-C0B1-4B57-8E2C-BC3E77E61873}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85FF89A3-C0B1-4B57-8E2C-BC3E77E61873}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CF8D0930-AFAF-45E6-8AEE-FC63C5A0D092}
+	EndGlobalSection
+EndGlobal
