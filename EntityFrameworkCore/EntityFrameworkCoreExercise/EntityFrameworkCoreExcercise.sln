@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31605.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkCoreExcercise", "EntityFrameworkCoreExcercise\EntityFrameworkCoreExcercise.csproj", "{6F7960F8-7A9A-44AB-B7C6-9760E45A6BC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftUni", "SoftUni\SoftUni.csproj", "{1167332A-A97C-4728-AE20-34727B7DF03C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F7960F8-7A9A-44AB-B7C6-9760E45A6BC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F7960F8-7A9A-44AB-B7C6-9760E45A6BC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F7960F8-7A9A-44AB-B7C6-9760E45A6BC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F7960F8-7A9A-44AB-B7C6-9760E45A6BC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1167332A-A97C-4728-AE20-34727B7DF03C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1167332A-A97C-4728-AE20-34727B7DF03C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1167332A-A97C-4728-AE20-34727B7DF03C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1167332A-A97C-4728-AE20-34727B7DF03C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D4D3310D-A654-4E6C-ABBD-C3E0A873722C}
+	EndGlobalSection
+EndGlobal
