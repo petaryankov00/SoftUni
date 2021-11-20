@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "d32fce85-7fda-4b19-aac7-86e4bb437894": {
+      "ProjectGuid": "d32fce85-7fda-4b19-aac7-86e4bb437894",
+      "DisplayName": "RealEstates.Importer",
+      "ColorIndex": 0
+    },
+    "e4deeddb-8a59-4dc0-bbdf-5ad1b12272fd": {
+      "ProjectGuid": "e4deeddb-8a59-4dc0-bbdf-5ad1b12272fd",
+      "DisplayName": "RealEstates.Services",
+      "ColorIndex": 1
+    },
+    "0f7caad6-7e7e-4476-a98a-00b335520abc": {
+      "ProjectGuid": "0f7caad6-7e7e-4476-a98a-00b335520abc",
+      "DisplayName": "RealEstates.ConsoleApplication",
+      "ColorIndex": 2
+    },
+    "3f140244-150e-4756-9e0d-55a4fb6e4a9c": {
+      "ProjectGuid": "3f140244-150e-4756-9e0d-55a4fb6e4a9c",
+      "DisplayName": "RealEstates.Data",
+      "ColorIndex": 3
+    },
+    "4d7197b0-9485-4c00-9a7f-9539c2026970": {
+      "ProjectGuid": "4d7197b0-9485-4c00-9a7f-9539c2026970",
+      "DisplayName": "RealEstates.Models",
+      "ColorIndex": 4
+    }
+  },
+  "NextColorIndex": 5
+}
