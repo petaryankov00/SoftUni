@@ -1,0 +1,36 @@
+﻿@using MyQuizApp.Services.Models
+@model IEnumerable<UserQuizViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://softuni.bg">SofUni</a>.</p>
+</div>
+
+<table class = "table table-sm table-bordered table-hover table-table-striped">
+    <tr><th>Quiz name</th><th>Action</th></tr>
+    @foreach (var quiz in Model)
+    {
+    <tr>
+        <td>@quiz.Title</td>
+            <td>
+                @if(quiz.Status == QuizStatus.NotSstarted)
+                {
+                    <a href = "/Quiz/Test/@quiz.Id" class= "btn btn-success">Start test</a>
+                }
+                else if (quiz.Status == QuizStatus.Progress)
+                {
+                    <a href = "/Quiz/Test/@quiz.Id" class= "btn btn-warning">Continue test</a>
+                }
+                else
+                {
+                     <a href = "/Quiz/Results/@quiz.Id" class= "btn btn-secondary">View results</a>
+                }
+            </td>
+    </tr>
+    }
+</table>
+
+
