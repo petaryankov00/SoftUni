@@ -14,23 +14,23 @@ namespace BinarySearch
 
         public static int? BinarySearch(int[] array, int key)
         {
-            int minIndex = 0;
-            int maxIndex = array.Length - 1;
+            int left = 0;
+            int right = array.Length - 1;
 
-            while (minIndex <= maxIndex)
+            while (left <= right)
             { 
-                int mid = (maxIndex + minIndex) / 2;
+                int mid = (right + left) / 2;
                 if (array[mid] == key)
                 {
                     return mid;
                 }
                 else if (key < array[mid])
                 {
-                    maxIndex = mid - 1;
+                    right = mid - 1;
                 }
                 else if (key > array[mid])
                 {
-                    minIndex = mid + 1;
+                    left = mid + 1;
                 }
             }
 
