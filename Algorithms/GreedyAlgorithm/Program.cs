@@ -8,14 +8,14 @@ namespace GreedyAlgorithm
     {
         static void Main(string[] args)
         {
-            //int[] coins = new int[] { 1, 2, 5, 10, 20, 50 };
-            //int sum = int.Parse(Console.ReadLine());
-            //var result = GreedyAlgorithm1(coins, sum);
+            int[] coins = new int[] { 1, 2, 5, 10, 20, 50 };
+            int sum = int.Parse(Console.ReadLine());
+            var result = GreedyAlgorithm1(coins, sum);
 
-            //foreach (var item in result)
-            //{
-            //    Console.WriteLine($"{item.Key} - {item.Value}");
-            //}
+            foreach (var item in result)
+            {
+                Console.WriteLine($"{item.Key} - {item.Value}");
+            }
 
             List<int> universe = Console.ReadLine().Split(", ").Select(int.Parse).ToList();
             List<int[]> sets = new List<int[]>
