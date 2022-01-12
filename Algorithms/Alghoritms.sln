@@ -5,11 +5,13 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alghoritms", "Alghoritms\Alghoritms.csproj", "{196553AC-4AB5-4F09-82B3-833F1D2BEAAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecursiveArraySum", "RecursiveArraySum\RecursiveArraySum.csproj", "{AA98715A-F598-47C0-9918-FCCE6F6EEC49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecursiveArraySum", "RecursiveArraySum\RecursiveArraySum.csproj", "{AA98715A-F598-47C0-9918-FCCE6F6EEC49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecursiveFactorial", "RecursiveFactorial\RecursiveFactorial.csproj", "{6EC7525B-E0C2-4AE8-9F36-FC6B372939D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecursiveFactorial", "RecursiveFactorial\RecursiveFactorial.csproj", "{6EC7525B-E0C2-4AE8-9F36-FC6B372939D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreedyAlgorithm", "GreedyAlgorithm\GreedyAlgorithm.csproj", "{94DE8098-DEB4-4D9E-AC6C-3E052A7A2D4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GreedyAlgorithm", "GreedyAlgorithm\GreedyAlgorithm.csproj", "{94DE8098-DEB4-4D9E-AC6C-3E052A7A2D4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MergeSort", "MergeSort\MergeSort.csproj", "{BD25E79E-B24E-49F0-83B3-D18C10FDB640}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{94DE8098-DEB4-4D9E-AC6C-3E052A7A2D4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94DE8098-DEB4-4D9E-AC6C-3E052A7A2D4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94DE8098-DEB4-4D9E-AC6C-3E052A7A2D4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD25E79E-B24E-49F0-83B3-D18C10FDB640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD25E79E-B24E-49F0-83B3-D18C10FDB640}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD25E79E-B24E-49F0-83B3-D18C10FDB640}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD25E79E-B24E-49F0-83B3-D18C10FDB640}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

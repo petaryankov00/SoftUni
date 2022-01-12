@@ -10,7 +10,17 @@
       "ProjectGuid": "94de8098-deb4-4d9e-ac6c-3e052a7a2d4a",
       "DisplayName": "GreedyAlgorithm",
       "ColorIndex": 1
+    },
+    "bd25e79e-b24e-49f0-83b3-d18c10fdb640": {
+      "ProjectGuid": "bd25e79e-b24e-49f0-83b3-d18c10fdb640",
+      "DisplayName": "MergeSort",
+      "ColorIndex": 2
+    },
+    "aa98715a-f598-47c0-9918-fcce6f6eec49": {
+      "ProjectGuid": "aa98715a-f598-47c0-9918-fcce6f6eec49",
+      "DisplayName": "RecursiveArraySum",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 4
 }
