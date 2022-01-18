@@ -10,6 +10,8 @@ namespace MyWebServer.Server.HTTP
         public const string Location = "Location";
         public const string Server = "Server";
         public const string ContentDisposition = "Content-Disposition";
+        public const string Cookie = "Cookie";
+        public const string SetCookie = "Set-Cookie";
 
 
         public Header(string _name, string _value)

@@ -59,6 +59,8 @@ namespace MyWebServer.Server
                     if (response.PreRenderAction != null)
                         response.PreRenderAction(request, response);
 
+                    AddSession(request, response);
+
                     await WriteResponse(networkStream, response);
 
                     connection.Close();
@@ -66,6 +68,17 @@ namespace MyWebServer.Server
 
             }
 
+        }
+
+        private static void AddSession(Request request, Response response)
+        {
+            var sessionExist = request.Session.ContainsKey(Session.SessionCurrentDayKey);
+
+            if (!sessionExist)
+            {
+                request.Session[Session.SessionCurrentDayKey] = DateTime.Now.ToString();
+                response.Cookies.Add(Session.SessionCookieName, request.Session.Id);
+            }
         }
 
         private async Task WriteResponse(NetworkStream networkStream, Response response)
