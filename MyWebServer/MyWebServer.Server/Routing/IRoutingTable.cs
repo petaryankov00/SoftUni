@@ -4,8 +4,8 @@ namespace MyWebServer.Server.Routing
 {
     public interface IRoutingTable
     {
-        IRoutingTable Map(string url, Method method, Response response);
-        IRoutingTable MapGet(string url, Response response);
-        IRoutingTable MapPost(string url, Response response);
+        IRoutingTable Map(string url, Method method, Func<Request,Response> responseFunction);
+        IRoutingTable MapGet(string url, Func<Request, Response> responseFunction);
+        IRoutingTable MapPost(string url, Func<Request, Response> responseFunction);
     }
 }
