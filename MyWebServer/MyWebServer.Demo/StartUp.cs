@@ -1,9 +1,5 @@
 ﻿using MyWebServer.Server;
 using MyWebServer.Demo.Controllers;
-using MyWebServer.Server.HTTP;
-using MyWebServer.Server.Responses;
-using System.Text;
-using System.Web;
 
 namespace MyWebServer.Demo
 {
