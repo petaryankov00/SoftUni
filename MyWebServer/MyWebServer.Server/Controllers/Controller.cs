@@ -2,7 +2,7 @@
 using MyWebServer.Server.Responses;
 using System.Runtime.CompilerServices;
 
-namespace MyWebServer.Demo.Controllers
+namespace MyWebServer.Server.Controllers
 {
     public abstract class Controller
     {

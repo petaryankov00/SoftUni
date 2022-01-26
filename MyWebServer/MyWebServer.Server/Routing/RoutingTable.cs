@@ -10,10 +10,10 @@ namespace MyWebServer.Server.Routing
 
         public RoutingTable() => this.routes = new()
         {
-            [Method.Get] = new(),
-            [Method.Post] = new(),
-            [Method.Put] = new(),
-            [Method.Delete] = new(),
+            [Method.Get] = new(StringComparer.InvariantCultureIgnoreCase),
+            [Method.Post] = new(StringComparer.InvariantCultureIgnoreCase),
+            [Method.Put] = new(StringComparer.InvariantCultureIgnoreCase),
+            [Method.Delete] = new(StringComparer.InvariantCultureIgnoreCase),
         };
 
         public IRoutingTable Map(string url, Method method, Func<Request, Response> responseFunction)

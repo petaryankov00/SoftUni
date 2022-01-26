@@ -1,7 +1,8 @@
-﻿using MyWebServer.Server.HTTP;
+﻿using MyWebServer.Server.Controllers;
+using MyWebServer.Server.HTTP;
 using MyWebServer.Server.Routing;
 
-namespace MyWebServer.Demo.Controllers
+namespace MyWebServer.Server.Controllers
 {
     public static class RoutingTableExtensions
     {

@@ -18,7 +18,7 @@ namespace MyWebServer.Server.HTTP
 
         public CookieCollection Cookies { get; } = new CookieCollection();
         
-        public string Body { get; set; }
+        public string Body { get; protected set; }
 
         public override string ToString()
         {
