@@ -56,7 +56,7 @@
         public HttpResponse Logout()
         {
             this.SignOut();
-            return Redirect("/Index");
+            return Redirect("/");
         }
     }
 }

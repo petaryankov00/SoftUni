@@ -8,6 +8,8 @@ namespace SharedTrip.Models
 {
     public class AllTripsViewModel
     {
+        public string TripId { get; set; }
+
         public string StartPoint { get; set; }
 
         public string EndPoint { get; set; }
