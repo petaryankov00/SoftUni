@@ -8,5 +8,7 @@ namespace SharedTrip.Services
         bool ValidateUser(RegstierUserViewModel model);
 
         bool ValidateTrip(AddTripViewModel model);
+
+        bool ValidateUserToJoinTrip(string tripId, string userId);
     }
 }

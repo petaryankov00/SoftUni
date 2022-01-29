@@ -37,5 +37,33 @@ namespace SharedTrip.Controllers
 
             return Redirect("/Trips/All");
         }
+
+        public HttpResponse Details(string tripId)
+        {
+            var trip = tripService.GetTripById(tripId);
+
+            if (trip == null)
+            {
+                return Text("Invalid TripId.");
+            }
+
+            return this.View(trip);
+        }
+
+        public HttpResponse AddUserToTrip(string tripId)
+        {
+            var userId = this.User.Id;
+
+            var isValidToJoin = validator.ValidateUserToJoinTrip(tripId, userId);
+
+            if (!isValidToJoin)
+            {
+                return Text("User already in trip or trip has no free seats.");
+            }
+
+            tripService.AddUserToTrip(tripId, userId);
+
+            return Redirect("/");
+        }
     }
 }
