@@ -1,12 +1,13 @@
 ﻿namespace SharedTrip.Controllers
 {
+    using Microsoft.EntityFrameworkCore;
     using MyWebServer.Controllers;
     using MyWebServer.Http;
     using SharedTrip.Common;
     using SharedTrip.Data;
     using SharedTrip.Models;
     using SharedTrip.Services;
-    using System.Linq;
+    using System.Threading.Tasks;
 
     public class UsersController : Controller
     {
@@ -24,24 +25,26 @@
         public HttpResponse Register() => this.View();
 
         [HttpPost]
-        public HttpResponse Register(RegstierUserViewModel model)
+        public async Task<HttpResponse> Register(RegstierUserViewModel model)
         {
             if (!validator.ValidateUser(model))
             {
                 return this.Text("Invalid Register Form.");
             }
             
-            userService.RegisterUser(model);
+            await userService.RegisterUser(model);
             return Redirect("/Users/Login");
         }
 
         public HttpResponse Login() => this.View();
 
         [HttpPost]
-        public HttpResponse Login(LoginUserViewModel model) 
+        public async Task<HttpResponse> Login(LoginUserViewModel model) 
         {
-            var user = context.Users
-                .FirstOrDefault(x=>x.Username == model.Username);
+            var user = await this.context
+                .Users
+                .FirstOrDefaultAsync(x=>x.Username == model.Username);
+
             var isUserValid = SecurePasswordHasher.Verify(model.Password, user.Password);
 
             if (!isUserValid)

@@ -3,6 +3,7 @@
     using SharedTrip.Common;
     using SharedTrip.Data;
     using SharedTrip.Models;
+    using System.Threading.Tasks;
 
     public class UserService : IUserService
     {
@@ -13,7 +14,7 @@
             this.context = context;
         }
 
-        public void RegisterUser(RegstierUserViewModel model)
+        public async Task RegisterUser(RegstierUserViewModel model)
         {
             var hashPassword = SecurePasswordHasher.Hash(model.Password);
 
@@ -24,8 +25,8 @@
                 Email = model.Email,
             };
 
-            context.Users.Add(user);
-            context.SaveChanges();
+            await context.Users.AddAsync(user);
+            await context.SaveChangesAsync();
         }
     }
 }
