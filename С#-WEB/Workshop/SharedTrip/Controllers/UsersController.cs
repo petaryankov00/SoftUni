@@ -7,6 +7,7 @@
     using SharedTrip.Data;
     using SharedTrip.Models;
     using SharedTrip.Services;
+    using System.Linq;
     using System.Threading.Tasks;
 
     public class UsersController : Controller
@@ -25,25 +26,25 @@
         public HttpResponse Register() => this.View();
 
         [HttpPost]
-        public async Task<HttpResponse> Register(RegstierUserViewModel model)
+        public HttpResponse Register(RegstierUserViewModel model)
         {
             if (!validator.ValidateUser(model))
             {
                 return this.Text("Invalid Register Form.");
             }
             
-            await userService.RegisterUser(model);
+            userService.RegisterUser(model);
             return Redirect("/Users/Login");
         }
 
         public HttpResponse Login() => this.View();
 
         [HttpPost]
-        public async Task<HttpResponse> Login(LoginUserViewModel model) 
+        public HttpResponse Login(LoginUserViewModel model) 
         {
-            var user = await this.context
+            var user = this.context
                 .Users
-                .FirstOrDefaultAsync(x=>x.Username == model.Username);
+                .FirstOrDefault(x=>x.Username == model.Username);
 
             var isUserValid = SecurePasswordHasher.Verify(model.Password, user.Password);
 

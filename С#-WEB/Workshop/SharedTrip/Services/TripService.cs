@@ -18,9 +18,9 @@ namespace SharedTrip.Services
             this.context = context;
         }
 
-        public async Task<ICollection<AllTripsViewModel>> GetAll()
+        public ICollection<AllTripsViewModel> GetAll()
         {
-            var trips = await this.context
+            var trips = context
                 .Trips
                 .Select(x => new AllTripsViewModel
                 {
@@ -30,12 +30,12 @@ namespace SharedTrip.Services
                     Seats = x.Seats,
                     TripId = x.Id
                 })
-                .ToListAsync();
+                .ToList();
 
             return trips;
         }
 
-        public async Task AddTrip(AddTripViewModel model)
+        public void AddTrip(AddTripViewModel model)
         {
             var trip = new Trip
             {
@@ -47,14 +47,14 @@ namespace SharedTrip.Services
                 Description = model.Description,
             };
 
-            await context.Trips.AddAsync(trip);
-            await context.SaveChangesAsync();
+            context.Trips.Add(trip);
+            context.SaveChanges();
         }
 
-        public async Task<TripDetailsViewModel> GetTripById(string tripId)
+        public TripDetailsViewModel GetTripById(string tripId)
         {
 
-            var trip = await this.context
+            var trip = context
                 .Trips
                 .Where(x => x.Id == tripId)
                 .Select(x => new TripDetailsViewModel
@@ -67,12 +67,12 @@ namespace SharedTrip.Services
                     ImagePath = x.ImagePath,
                     Seats = x.Seats
                 })
-                .FirstOrDefaultAsync();
+                .FirstOrDefault();
 
             return trip;
         }
 
-        public async Task AddUserToTrip(string tripId, string userId)
+        public void AddUserToTrip(string tripId, string userId)
         {
             var userTrip = new UserTrip
             {
@@ -80,8 +80,8 @@ namespace SharedTrip.Services
                 TripId = tripId
             };
 
-            await context.UsersTrips.AddAsync(userTrip);
-            await context.SaveChangesAsync();
+            context.UsersTrips.Add(userTrip);
+            context.SaveChanges();
         }
     }
 }

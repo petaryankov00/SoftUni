@@ -1,5 +1,6 @@
 ﻿using MyWebServer.Controllers;
 using MyWebServer.Http;
+using MyWebServer.Results;
 using SharedTrip.Models;
 using SharedTrip.Services;
 using System.Threading.Tasks;
@@ -18,9 +19,9 @@ namespace SharedTrip.Controllers
             this.validator = validator;
         }
 
-        public async Task<HttpResponse> All()
+        public HttpResponse All()
         {      
-            var tripsToReturn =  await tripService.GetAll();
+            var tripsToReturn = tripService.GetAll();
 
             return this.View(tripsToReturn);
         }
@@ -28,21 +29,21 @@ namespace SharedTrip.Controllers
         public HttpResponse Add() => this.View();
 
         [HttpPost]
-        public async Task<HttpResponse> Add(AddTripViewModel model)
+        public HttpResponse Add(AddTripViewModel model)
         {
             if (!validator.ValidateTrip(model))
             {
                 return Text("Unvalid trip data.");
             }
 
-            await tripService.AddTrip(model);
+            tripService.AddTrip(model);
 
             return Redirect("/Trips/All");
         }
 
-        public async Task<HttpResponse> DetailsAsync(string tripId)
+        public HttpResponse Details(string tripId)
         {
-            var trip = await tripService.GetTripById(tripId);
+            var trip = tripService.GetTripById(tripId);
 
             if (trip == null)
             {
@@ -52,7 +53,7 @@ namespace SharedTrip.Controllers
             return this.View(trip);
         }
 
-        public async Task<HttpResponse> AddUserToTrip(string tripId)
+        public HttpResponse AddUserToTrip(string tripId)
         {
             var userId = this.User.Id;
 
@@ -63,7 +64,7 @@ namespace SharedTrip.Controllers
                 return Text("User already in trip or trip has no free seats.");
             }
 
-            await tripService.AddUserToTrip(tripId, userId);
+            tripService.AddUserToTrip(tripId, userId);
 
             return Redirect("/");
         }

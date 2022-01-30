@@ -9,12 +9,12 @@ namespace SharedTrip.Services
 {
     public interface ITripService
     {
-        Task<ICollection<AllTripsViewModel>> GetAll();
+        ICollection<AllTripsViewModel> GetAll();
 
-        Task AddTrip(AddTripViewModel model);
+        void AddTrip(AddTripViewModel model);
 
-        Task<TripDetailsViewModel> GetTripById (string tripId);
+        TripDetailsViewModel GetTripById (string tripId);
 
-        Task AddUserToTrip(string tripId,string userId);
+        void AddUserToTrip(string tripId,string userId);
     }
 }

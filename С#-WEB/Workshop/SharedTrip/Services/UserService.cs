@@ -14,7 +14,7 @@
             this.context = context;
         }
 
-        public async Task RegisterUser(RegstierUserViewModel model)
+        public void RegisterUser(RegstierUserViewModel model)
         {
             var hashPassword = SecurePasswordHasher.Hash(model.Password);
 
@@ -25,8 +25,8 @@
                 Email = model.Email,
             };
 
-            await context.Users.AddAsync(user);
-            await context.SaveChangesAsync();
+            context.Users.Add(user);
+            context.SaveChanges();
         }
     }
 }

@@ -5,7 +5,7 @@
 
     public interface IUserService
     {
-        Task RegisterUser(RegstierUserViewModel model);
+        void RegisterUser(RegstierUserViewModel model);
 
     }
 }
