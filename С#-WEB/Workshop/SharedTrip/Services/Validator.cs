@@ -9,16 +9,16 @@ namespace SharedTrip.Services
 {
     public class Validator : IValidator
     {
-        private readonly ApplicationDbContext dbContext;
+        private readonly ApplicationDbContext context;
 
-        public Validator()
+        public Validator(ApplicationDbContext context)
         {
-           dbContext = new ApplicationDbContext();
+            this.context = context;
         }
 
         public bool ValidateUser(RegstierUserViewModel model)
         {
-            if (dbContext.Users.Any(x => x.Username == model.Username || x.Email == model.Email))
+            if (context.Users.Any(x => x.Username == model.Username || x.Email == model.Email))
             {
                 return false;
             }
@@ -64,14 +64,14 @@ namespace SharedTrip.Services
 
         public bool ValidateUserToJoinTrip(string tripId,string userId)
         {
-            var isUserInTrip = dbContext.UsersTrips.Any(x => x.UserId == userId && x.TripId == tripId);
+            var isUserInTrip = context.UsersTrips.Any(x => x.UserId == userId && x.TripId == tripId);
 
             if (isUserInTrip)
             {
                 return false;
             }
 
-            var trip = dbContext.Trips.FirstOrDefault(x => x.Id == tripId);
+            var trip = context.Trips.FirstOrDefault(x => x.Id == tripId);
             trip.Seats--;
 
             if (trip.Seats < 0)
@@ -80,7 +80,7 @@ namespace SharedTrip.Services
                 return false;
             }
 
-            dbContext.SaveChanges();
+            context.SaveChanges();
             return true;
         }
     }

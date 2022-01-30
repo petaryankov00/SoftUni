@@ -14,11 +14,11 @@
         private readonly IValidator validator;
         private readonly IUserService userService;  
 
-        public UsersController()
+        public UsersController(ApplicationDbContext context,IValidator validator,IUserService userService)
         {
-            context = new ApplicationDbContext();
-            validator = new Validator();
-            userService = new UserService();
+            this.context = context;
+            this.validator = validator;
+            this.userService = userService;
         }
 
         public HttpResponse Register() => this.View();

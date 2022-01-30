@@ -2,6 +2,8 @@
 using MyWebServer.Http;
 using SharedTrip.Models;
 using SharedTrip.Services;
+using System.Threading.Tasks;
+
 namespace SharedTrip.Controllers
 {
     [Authorize]
@@ -10,15 +12,15 @@ namespace SharedTrip.Controllers
         private readonly ITripService tripService;
         private readonly IValidator validator;
 
-        public TripsController()
-        {      
-            tripService = new TripService();
-            validator = new Validator();
+        public TripsController(ITripService tripService,IValidator validator)
+        {
+            this.tripService = tripService;
+            this.validator = validator;
         }
 
-        public HttpResponse All()
+        public async Task<HttpResponse> All()
         {      
-            var tripsToReturn =  tripService.GetAll();
+            var tripsToReturn =  await tripService.GetAll();
 
             return this.View(tripsToReturn);
         }
@@ -26,21 +28,21 @@ namespace SharedTrip.Controllers
         public HttpResponse Add() => this.View();
 
         [HttpPost]
-        public HttpResponse Add(AddTripViewModel model)
+        public async Task<HttpResponse> Add(AddTripViewModel model)
         {
             if (!validator.ValidateTrip(model))
             {
                 return Text("Unvalid trip data.");
             }
 
-            tripService.AddTrip(model);
+            await tripService.AddTrip(model);
 
             return Redirect("/Trips/All");
         }
 
-        public HttpResponse Details(string tripId)
+        public async Task<HttpResponse> DetailsAsync(string tripId)
         {
-            var trip = tripService.GetTripById(tripId);
+            var trip = await tripService.GetTripById(tripId);
 
             if (trip == null)
             {
@@ -50,7 +52,7 @@ namespace SharedTrip.Controllers
             return this.View(trip);
         }
 
-        public HttpResponse AddUserToTrip(string tripId)
+        public async Task<HttpResponse> AddUserToTrip(string tripId)
         {
             var userId = this.User.Id;
 
@@ -61,7 +63,7 @@ namespace SharedTrip.Controllers
                 return Text("User already in trip or trip has no free seats.");
             }
 
-            tripService.AddUserToTrip(tripId, userId);
+            await tripService.AddUserToTrip(tripId, userId);
 
             return Redirect("/");
         }

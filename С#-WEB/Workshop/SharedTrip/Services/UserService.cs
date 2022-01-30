@@ -3,16 +3,14 @@
     using SharedTrip.Common;
     using SharedTrip.Data;
     using SharedTrip.Models;
-    using System;
-    using System.Security.Cryptography;
 
     public class UserService : IUserService
     {
         private readonly ApplicationDbContext context;
 
-        public UserService()
+        public UserService(ApplicationDbContext context)
         {
-            context = new ApplicationDbContext();
+            this.context = context;
         }
 
         public void RegisterUser(RegstierUserViewModel model)

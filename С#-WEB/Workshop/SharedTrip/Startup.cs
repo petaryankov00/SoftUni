@@ -19,7 +19,8 @@
                 .WithServices(services => services
                     .Add<IViewEngine, CompilationViewEngine>()
                     .Add<IValidator,Validator>()
-                    .Add<IUserService, UserService>())
+                    .Add<IUserService, UserService>()
+                    .Add<ITripService, TripService>())
                 .Start();
     }
 }

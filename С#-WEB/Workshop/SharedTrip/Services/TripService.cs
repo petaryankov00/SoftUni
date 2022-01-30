@@ -1,24 +1,27 @@
-﻿using SharedTrip.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using SharedTrip.Data;
 using SharedTrip.Models;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace SharedTrip.Services
 {
     public class TripService : ITripService
     {
-        private readonly ApplicationDbContext dbContext;
+        private readonly ApplicationDbContext context;
 
-        public TripService()
+        public TripService(ApplicationDbContext context)
         {
-            dbContext = new ApplicationDbContext();
+            this.context = context;
         }
 
-        public ICollection<AllTripsViewModel> GetAll()
+        public async Task<ICollection<AllTripsViewModel>> GetAll()
         {
-            var trips = dbContext.Trips
+            var trips = await this.context
+                .Trips
                 .Select(x => new AllTripsViewModel
                 {
                     StartPoint = x.StartPoint,
@@ -27,12 +30,12 @@ namespace SharedTrip.Services
                     Seats = x.Seats,
                     TripId = x.Id
                 })
-                .ToList();
+                .ToListAsync();
 
             return trips;
         }
 
-        public void AddTrip(AddTripViewModel model)
+        public async Task AddTrip(AddTripViewModel model)
         {
             var trip = new Trip
             {
@@ -44,14 +47,14 @@ namespace SharedTrip.Services
                 Description = model.Description,
             };
 
-            dbContext.Trips.Add(trip);
-            dbContext.SaveChanges();
+            await context.Trips.AddAsync(trip);
+            await context.SaveChangesAsync();
         }
 
-        public TripDetailsViewModel GetTripById(string tripId)
+        public async Task<TripDetailsViewModel> GetTripById(string tripId)
         {
 
-            var trip = dbContext
+            var trip = await this.context
                 .Trips
                 .Where(x => x.Id == tripId)
                 .Select(x => new TripDetailsViewModel
@@ -64,12 +67,12 @@ namespace SharedTrip.Services
                     ImagePath = x.ImagePath,
                     Seats = x.Seats
                 })
-                .FirstOrDefault();
+                .FirstOrDefaultAsync();
 
             return trip;
         }
 
-        public void AddUserToTrip(string tripId, string userId)
+        public async Task AddUserToTrip(string tripId, string userId)
         {
             var userTrip = new UserTrip
             {
@@ -77,8 +80,8 @@ namespace SharedTrip.Services
                 TripId = tripId
             };
 
-            dbContext.UsersTrips.Add(userTrip);
-            dbContext.SaveChanges();
+            await context.UsersTrips.AddAsync(userTrip);
+            await context.SaveChangesAsync();
         }
     }
 }
