@@ -58,6 +58,21 @@ namespace SMS.Services
 
             return products;
         }
+        public ICollection<ProductsInCartViewModel> GetProductsInCart(string userId)
+        {
+            var products = dbContext.Products
+                .Where(x => x.Cart.User.Id == userId)
+                .Select(x => new ProductsInCartViewModel
+                {
+                    Name = x.Name,
+                    Price = x.Price,
+                })
+                .ToList();
+
+            return products;
+                
+        }
+
         private bool isValid(CreateProductInputModel model)
         {
             if (model.Name == null || model.Name.Length < 4 || model.Name.Length > 20)
@@ -74,5 +89,7 @@ namespace SMS.Services
 
         private string GetCurrentUserName(string userId)
                => this.dbContext.Users.FirstOrDefault(x => x.Id == userId).Username;
+
+   
     }
 }

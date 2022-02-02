@@ -9,5 +9,7 @@ namespace SMS.Services
         ICollection<AllProductsViewModel>  GetAllProducts(string userId);
 
         bool CreateProduct(CreateProductInputModel model);
+
+        ICollection<ProductsInCartViewModel> GetProductsInCart(string userId);
     }
 }
