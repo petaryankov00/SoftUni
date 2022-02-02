@@ -17,7 +17,8 @@
                     .MapControllers())
                 .WithServices(services => services
                     .Add<IViewEngine, CompilationViewEngine>()
-                    .Add<IUserService,UserService>())
+                    .Add<IUserService,UserService>()
+                    .Add<IProductService,ProductService>())
                 .Start();
     }
 }
