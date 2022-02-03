@@ -6,10 +6,14 @@ namespace SMS.Services
 {
     public interface IProductService
     {
-        ICollection<AllProductsViewModel>  GetAllProducts(string userId);
+        UserProductsViewModel GetAllProductsWithUser(string userId);
 
         bool CreateProduct(CreateProductInputModel model);
 
-        ICollection<ProductsInCartViewModel> GetProductsInCart(string userId);
+        IEnumerable<ProductsInCartViewModel> GetProductsInCart(string userId);
+
+        bool AddProductInUserCart(string productId,string userId);
+
+        void ClearProductsInCart(string userId);
     }
 }

@@ -16,8 +16,8 @@
         {
             if (this.User.IsAuthenticated)
             {
-                var products = productService.GetAllProducts(this.User.Id);
-                return this.View(products,"IndexLoggedIn");
+                var userAndProducts = productService.GetAllProductsWithUser(this.User.Id);
+                return this.View(userAndProducts, "IndexLoggedIn");
             }
 
             return this.View();

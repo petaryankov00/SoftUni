@@ -35,43 +35,79 @@ namespace SMS.Services
             return true;
         }
 
-        public ICollection<AllProductsViewModel> GetAllProducts(string userId)
+        public UserProductsViewModel GetAllProductsWithUser(string userId)
         {
             var username = GetCurrentUserName(userId);
 
-            var products =
-                dbContext
+            var products = dbContext
                 .Products
                 .Select(x => new AllProductsViewModel
                 {
                     Name = x.Name,
-                    Price = x.Price.ToString("f2"),
-                    Username = username,
-                    ProductId = x.Id,
+                    Price = x.Price,
+                    ProductId = x.Id
                 })
                 .ToList();
 
-            if (products.Count == 0)
+            var userAndProducts = new UserProductsViewModel
             {
-                products.Add(new AllProductsViewModel { Username = username });
+                Username = username,
+                Products = products
+            };
+
+            return userAndProducts;
+        }
+        public IEnumerable<ProductsInCartViewModel> GetProductsInCart(string userId)
+        {
+            var products = dbContext.Carts
+                .Where(x => x.User.Id == userId)
+                .Select(x => x
+                .Products.
+                 Select(p => new ProductsInCartViewModel
+                 {
+                     Name = p.Name,
+                     Price = p.Price,
+                 })).ToList()
+                 .FirstOrDefault();
+
+            return products;
+
+        }
+
+        public bool AddProductInUserCart(string productId, string userId)
+        {
+            var product = dbContext.Products.FirstOrDefault(x => x.Id == productId);
+
+            if (product == null)
+            {
+                return false;
             }
 
-            return products;
+            var cart = dbContext.Carts.FirstOrDefault(x => x.User.Id == userId);
+
+            cart.Products.Add(product);
+            dbContext.SaveChanges();
+
+            return true;
         }
-        public ICollection<ProductsInCartViewModel> GetProductsInCart(string userId)
+
+        public void ClearProductsInCart(string userId)
         {
+            var cartId = dbContext.Carts.FirstOrDefault(c => c.User.Id == userId).Id;
+
+
             var products = dbContext.Products
-                .Where(x => x.Cart.User.Id == userId)
-                .Select(x => new ProductsInCartViewModel
-                {
-                    Name = x.Name,
-                    Price = x.Price,
-                })
+                .Where(x => x.CartId == cartId)
                 .ToList();
 
-            return products;
-                
+            foreach (var p in products)
+            {
+                p.CartId = null;
+            }
+
+            dbContext.SaveChanges();                   
         }
+
 
         private bool isValid(CreateProductInputModel model)
         {
@@ -89,7 +125,5 @@ namespace SMS.Services
 
         private string GetCurrentUserName(string userId)
                => this.dbContext.Users.FirstOrDefault(x => x.Id == userId).Username;
-
-   
     }
 }

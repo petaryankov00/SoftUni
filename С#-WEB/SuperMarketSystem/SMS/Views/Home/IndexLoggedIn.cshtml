@@ -1,5 +1,5 @@
 ﻿<div class="button-holder text-center">
-    <h3>Hello, @Model[0].Username</h3>
+    <h3>Hello, @Model.Username</h3>
     <a href="/Carts/Details" class="btn btn-outline-primary">My Cart</a>
 </div>
 <main class="mt-3">
@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var product in Model)
+                @foreach (var product in Model.Products)
                 {
                     <tr class="row">
                         <td class="col-lg-5">@product.Name</td>
