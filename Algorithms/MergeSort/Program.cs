@@ -9,7 +9,7 @@ namespace MergeSort
     {
         static void Main(string[] args)
         {
-            int[] array = new int[100000];
+            int[] array = new int[10];
 
             for (int i = 0; i < array.Length; i++)
             {
