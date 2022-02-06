@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecursiveFactorial", "Recur
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GreedyAlgorithm", "GreedyAlgorithm\GreedyAlgorithm.csproj", "{94DE8098-DEB4-4D9E-AC6C-3E052A7A2D4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MergeSort", "MergeSort\MergeSort.csproj", "{BD25E79E-B24E-49F0-83B3-D18C10FDB640}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MergeSort", "MergeSort\MergeSort.csproj", "{BD25E79E-B24E-49F0-83B3-D18C10FDB640}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BubbleSort", "BubbleSort\BubbleSort.csproj", "{438AD8D4-57E3-477D-9B07-02636226EB8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{BD25E79E-B24E-49F0-83B3-D18C10FDB640}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD25E79E-B24E-49F0-83B3-D18C10FDB640}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD25E79E-B24E-49F0-83B3-D18C10FDB640}.Release|Any CPU.Build.0 = Release|Any CPU
+		{438AD8D4-57E3-477D-9B07-02636226EB8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{438AD8D4-57E3-477D-9B07-02636226EB8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{438AD8D4-57E3-477D-9B07-02636226EB8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{438AD8D4-57E3-477D-9B07-02636226EB8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

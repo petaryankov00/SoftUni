@@ -13,7 +13,7 @@ namespace MergeSort
 
             for (int i = 0; i < array.Length; i++)
             {
-                array[i] = 1000 - i;
+                array[i] = 10 + 2 - i;
             }
             var watch = new Stopwatch();
 
