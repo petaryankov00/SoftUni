@@ -12,7 +12,7 @@ namespace BubbleSort
 
             Console.WriteLine(String.Join(" ",arr));
         }
-
+        
         private static int[] BubbleSort(int[] arr)
         {
             for (int i = 0; i < arr.Length - 1; i++)
