@@ -1,7 +1,7 @@
 ﻿using CarShop.Models.Users;
 using System.Collections.Generic;
 
-namespace CarShop.Services
+namespace CarShop.Services.Contracts
 {
     public interface IUserService
     {

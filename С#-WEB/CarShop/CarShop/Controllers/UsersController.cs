@@ -1,5 +1,6 @@
 ﻿using CarShop.Models.Users;
 using CarShop.Services;
+using CarShop.Services.Contracts;
 using MyWebServer.Controllers;
 using MyWebServer.Http;
 using System.Collections.Generic;
@@ -48,7 +49,7 @@ namespace CarShop.Controllers
 
             this.SignIn(login.userId);
 
-            return Redirect("/Cars/All");
+            return Redirect("/");
         }
 
         public HttpResponse Logout()
