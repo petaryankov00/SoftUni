@@ -22,7 +22,7 @@ namespace CarShop.Controllers
         [Authorize]
         public HttpResponse Add(CarInputModel model)
         {
-            var carValidation = carService.ValidateCar(model);
+            var carValidation = carService.ValidateCar(model,this.User.Id);
 
             if (!carValidation.isValid)
             {

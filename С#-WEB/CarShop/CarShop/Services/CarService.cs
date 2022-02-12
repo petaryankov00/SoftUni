@@ -67,10 +67,18 @@ namespace CarShop.Services
             return cars;
         }
 
-        public (bool isValid, IEnumerable<string> errors) ValidateCar(CarInputModel model)
+        public (bool isValid, IEnumerable<string> errors) ValidateCar(CarInputModel model,string userId)
         {
             List<string> errors = new List<string>();
             bool isValid = true;
+            var user = dbContext.Users.FirstOrDefault(x=>x.Id == userId);
+
+            if (user.IsMechanic)
+            {
+                errors.Add("You cannot add cars, because you are a mechanic." +
+                    "You should fix them ;)");
+                isValid = false;
+            }
 
             if (model.Model == null || model.Model.Length < 5 || model.Model.Length > 20)
             {

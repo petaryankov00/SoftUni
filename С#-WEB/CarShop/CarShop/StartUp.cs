@@ -21,7 +21,8 @@
                 .Add<ApplicationDbContext>()
                 .Add<IViewEngine, CompilationViewEngine>()
                 .Add<IUserService,UserService>()
-                .Add<ICarService,CarService>())
+                .Add<ICarService,CarService>()
+                .Add<IIssueService, IssueService>())
                 .WithConfiguration<ApplicationDbContext>(context => context
                     .Database.Migrate())
                 .Start();
