@@ -20,7 +20,8 @@
                 .Add<ApplicationDbContext>()
                 .Add<IViewEngine, CompilationViewEngine>()
                 .Add<IUsersService, UsersService>()
-                .Add<IValidationService, ValidationService>())
+                .Add<IValidationService, ValidationService>()
+                .Add<IRepositoryService,RepositoryService>())
                 .WithConfiguration<ApplicationDbContext>(context => context
                     .Database.Migrate())
                 .Start();
