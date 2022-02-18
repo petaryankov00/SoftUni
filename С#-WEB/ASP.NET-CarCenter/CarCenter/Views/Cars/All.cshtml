@@ -1,0 +1,38 @@
+﻿@using CarCenter.ViewModels.Cars
+@model List<AllCarsViewModel>
+
+@{
+    ViewData["Title"] = "All Cars";
+}
+
+
+@if (!Model.Any())
+{
+    <div class="jumbotron">
+        <h1 class="display-4">There is no cars in the system!</h1>
+        <hr class="my-4">
+        <p>You can add right now!</p>
+        <p class="lead">
+            <a asp-controller="Cars" asp-action="Add" class="btn btn-primary btn-lg" role="button">Add Car</a>
+        </p>
+    </div>
+}
+else
+{
+    <div class="row">
+        @foreach (var car in Model)
+        {
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@car.ImageURL" alt="@car.ImageURL">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">@car.Brand</h5>
+                        <a class="btn btn-primary" asp-controller="Cars" asp-action="Details" asp-route-id="@car.Id">Details</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+}
+

@@ -1,0 +1,25 @@
+﻿@using CarCenter.ViewModels.Cars
+@model CarDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card text-center">
+    <img class="card-img-top" src="@Model.ImageURL" alt="CardImage">
+    <div class="card-body">
+        <ul class="list-group font-weight-bold">
+            <li class="list-group-item list-group-item-dark">Model: @Model.Brand</li>
+            <li class="list-group-item list-group-item-dark">Year: @Model.Year</li>
+            <li class="list-group-item list-group-item-dark">Category: @Model.Category</li>
+            <li class="list-group-item list-group-item-dark">Issues: @Model.IssuesCount</li>
+        </ul>
+    </div>
+    <div class="card-footer">
+        <div class="btn-group" role="group" aria-label="Basic example">
+             <a class="btn btn-info" asp-controller="Issues" asp-action="CarIssues" asp-route-id="@Model.Id">View Issues</a>
+            <a class="btn btn-warning" asp-controller="Issues" asp-action="Add" asp-route-id="@Model.Id">Add Issue</a>
+            <a class="btn btn-danger" asp-controller="Cars" asp-action="Delete" asp-route-id="@Model.Id">Delete Car</a>
+        </div>
+    </div>
+</div>
