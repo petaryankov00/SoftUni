@@ -10,6 +10,8 @@
 
         public int Year { get; set; }
 
+        public string PlateNumber { get; set; }
+
         public int IssuesCount { get; set; }
 
         public string Category { get; set; }

@@ -93,7 +93,8 @@ namespace CarCenter.Services
                     ImageURL = x.ImageURL,
                     IssuesCount = x.Issues.Where(i=>i.IsFixed == false).Count(),
                     Year = x.Year,
-                    Id = x.Id
+                    Id = x.Id,
+                    PlateNumber = x.PlateNumber,
                 })
                 .FirstOrDefault();
 
