@@ -14,7 +14,7 @@ namespace CarCenter.ViewModels.Cars
         public int Year { get; set; }
 
         [Required]
-        [StringLength(8, MinimumLength = 8,ErrorMessage = "Please enter valid plate number")]
+        [StringLength(8, MinimumLength = 6,ErrorMessage = "Please enter valid plate number")]
         public string PlateNumber { get; set; }
 
         [Required]

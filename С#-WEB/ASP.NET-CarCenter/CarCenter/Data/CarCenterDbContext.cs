@@ -33,11 +33,10 @@ namespace CarCenter.Data
                 .HasForeignKey(x => x.CategoryId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Entity<Issue>()
-                .HasOne(x => x.Car)
-                .WithMany(x => x.Issues)
-                .HasForeignKey(x => x.CarId)
-                .OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<Car>()
+                .HasMany(x => x.Issues)
+                .WithOne(x => x.Car)
+                .OnDelete(DeleteBehavior.Cascade);
 
             base.OnModelCreating(builder);
         }
