@@ -1,0 +1,20 @@
+﻿@using CarCenter.ViewModels.Issues
+@model IssueInputModel
+
+@{
+    ViewData["Title"] = "Add Issue";
+}
+
+<h1 class="text-center mt-2">Please describe the new Issue you'd like to add.</h1>
+<hr class="bg-primary w-75">
+<form class="mx-auto w-50" method="post">
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control" placeholder="Description..." ></textarea> 
+        <span asp-validation-for="Description" class="small text-danger"></span>
+    </div>
+    <input type="text" hidden id="id" name="carId" value="@Model.CarId" />
+    <div class="d-flex justify-content-center">
+       <input class="btn btn-primary mt-3" type="submit" value="Add" />
+    </div>
+</form>

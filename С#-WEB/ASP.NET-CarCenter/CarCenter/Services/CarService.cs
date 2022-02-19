@@ -91,7 +91,7 @@ namespace CarCenter.Services
                     Brand = x.Brand.Name,
                     Category = x.Category.Type,
                     ImageURL = x.ImageURL,
-                    IssuesCount = x.Issues.Count,
+                    IssuesCount = x.Issues.Where(i=>i.IsFixed == false).Count(),
                     Year = x.Year,
                     Id = x.Id
                 })

@@ -14,6 +14,8 @@ namespace CarCenter.Data.Models
 
         public bool IsFixed { get; set; }
 
+        public DateTime CreatedOn { get; set; }
+
         [Required]
         public string CarId { get; set; }
 

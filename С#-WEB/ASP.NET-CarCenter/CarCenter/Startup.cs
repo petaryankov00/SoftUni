@@ -44,6 +44,7 @@ namespace CarCenter
 
             services.AddTransient<IRepository, Repository>();
             services.AddTransient<ICarService, CarService>();
+            services.AddTransient<IIssueService, IssueService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

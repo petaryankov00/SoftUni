@@ -1,0 +1,49 @@
+﻿@using CarCenter.ViewModels.Issues
+@model IEnumerable<AllIssuesViewModel>
+
+@{
+    ViewData["Title"] = "All Issues";
+}
+
+@if (!@Model.Any())
+{
+    <div class="jumbotron">
+        <h1 class="display-4">There is no issues in the system!</h1>
+        <hr class="my-4">
+    </div>
+}
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Model</th>
+            <th scope="col">Description</th>
+            <th scope="col">CreatedOn</th>
+            <th scope="col">IsFixed</th>
+            <th scope="col">Fix?</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var issue in Model)
+        {
+            <tr>
+                <th scope="row">@issue.CarModel</th>
+                <td>@issue.Description</td>
+                <td>@issue.CreatedOn</td>
+                <td>@issue.IsFixed</td>
+                @if (@issue.IsFixed == "Yes")
+                {
+                    <td>
+                        <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Disabled tooltip">
+                            <button class="btn btn-success" style="pointer-events: none;" type="button" disabled>Fixed</button>
+                        </span>
+                    </td>
+                }
+                else
+                {
+                    <td><a class="btn btn-danger" asp-controller="Issues" asp-action="FixIssue" asp-route-id="@issue.Id">Fix Issue</a></td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

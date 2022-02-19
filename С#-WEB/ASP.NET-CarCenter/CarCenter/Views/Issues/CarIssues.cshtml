@@ -1,0 +1,25 @@
+﻿@using CarCenter.ViewModels.Issues
+@model IEnumerable<CarIssueViewModel>
+
+@{
+    ViewData["Title"] = "Car Issues";
+}
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col">
+            @if (@item.IsFixed == "Yes")
+            {
+                <a class="list-group-item list-group-item-action list-group-item-success text-center font-weight-bold">@item.Description</a>
+            }
+            else
+            {
+                <a class="list-group-item list-group-item-action list-group-item-danger text-center font-weight-bold">@item.Description</a>
+            }
+            <p class="list-group-item">CreatedOn: @item.CreatedOn</p>
+            <p class="list-group-item">IsFixed: @item.IsFixed</p>
+        </div>
+    }
+</div>
