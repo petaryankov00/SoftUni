@@ -59,16 +59,10 @@ namespace CarCenter.Controllers
             return View(issues);
         }
 
+        [Authorize]
         public IActionResult FixIssue(string id)
         {
-            try
-            {
-                issueService.FixIssue(id);
-            }
-            catch (Exception ex)
-            {
-                return View("Error", new ErrorViewModel() { Message = ex.Message });
-            }
+            issueService.FixIssue(id);
 
             return Redirect("/Issues/All");
         }
