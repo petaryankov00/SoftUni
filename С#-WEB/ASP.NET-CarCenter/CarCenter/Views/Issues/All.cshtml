@@ -39,9 +39,15 @@
                         </span>
                     </td>
                 }
+                else if (this.User.IsInRole("Admin"))
+                {
+                    <td><a class="btn btn-danger" type="button"  asp-controller="Issues" asp-action="FixIssue" asp-route-id="@issue.Id">Fix Issue</a></td>
+                }
                 else
                 {
-                    <td><a class="btn btn-danger" asp-controller="Issues" asp-action="FixIssue" asp-route-id="@issue.Id">Fix Issue</a></td>
+                    <td>
+                        <button class="btn btn-danger" style="pointer-events: none;" type="button" disabled>Fix Issue</button>
+                    </td>
                 }
             </tr>
         }

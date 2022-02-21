@@ -22,7 +22,7 @@ namespace CarCenter.Infrastructure
             MigrateDatabase(services);
 
             SeedCategories(services);
-            SeedAdmin(services).GetAwaiter().GetResult();
+            SeedAdmin(services);
 
             return app;
         }
@@ -58,33 +58,38 @@ namespace CarCenter.Infrastructure
             data.SaveChanges();
         }
 
-        private static async Task SeedAdmin(IServiceProvider services)
+        private static void SeedAdmin(IServiceProvider services)
         {
             var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
             var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
 
-            if (await roleManager.RoleExistsAsync("Admin"))
-            {
-                return;
-            }
+            Task
+                .Run(async () =>
+                {
+                    if (await roleManager.RoleExistsAsync("Admin"))
+                    {
+                        return;
+                    }
 
-            var role = new IdentityRole { Name = "Admin" };
+                    var role = new IdentityRole { Name = "Admin" };
 
-            await roleManager.CreateAsync(role);
+                    await roleManager.CreateAsync(role);
 
-            const string adminName = "Admin1";
-            const string adminEmail = "Admin@gmail.com";
-            const string adminPassword = "admin123";
+                    const string adminEmail = "mechanic@go.com";
+                    const string adminPassword = "admin123";
 
-            var user = new IdentityUser
-            {
-                UserName = adminName,
-                Email = adminEmail,
-            };
+                    var user = new IdentityUser
+                    {
+                        Email = adminEmail,
+                        UserName = adminEmail,
+                    };
 
-            await userManager.CreateAsync(user, adminPassword);
+                    await userManager.CreateAsync(user, adminPassword);
 
-            await userManager.AddToRoleAsync(user, "Admin");
+                    await userManager.AddToRoleAsync(user, "Admin");
+                })
+                .GetAwaiter()
+                .GetResult();
 
         }
     }
