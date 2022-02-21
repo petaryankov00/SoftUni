@@ -84,6 +84,7 @@ namespace CarCenter.Services
 
         public CarDetailsViewModel CarDetails(string id)
         {
+            var carTest = repo.All<Car>().FirstOrDefault();
             var car = repo.All<Car>()
                 .Where(x=>x.Id == id)
                 .Select(x=> new CarDetailsViewModel

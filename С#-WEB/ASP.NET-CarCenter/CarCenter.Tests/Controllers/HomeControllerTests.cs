@@ -16,12 +16,12 @@ namespace CarCenter.Tests.Controllers
         {
             MyMvc
                 .Controller<HomeController>()
-                .WithData(CarsData.TenCars)
+                .WithData(TestData.TenCars)
                 .Calling(x=>x.Index())
                 .ShouldReturn()
                 .View(v => v
                 .WithModelOfType<IEnumerable<CarHomeViewModel>>()
-                .Passing(x=>Assert.Equal(10, CarsData.TenCars.Count())));
+                .Passing(x=>Assert.Equal(10, TestData.TenCars.Count())));
         }
 
     }
