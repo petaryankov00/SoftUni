@@ -1,5 +1,4 @@
 ﻿using CarCenter.Controllers;
-using CarCenter.Data.Models;
 using CarCenter.Models;
 using CarCenter.Tests.Controllers.Data;
 using CarCenter.ViewModels.Cars;
