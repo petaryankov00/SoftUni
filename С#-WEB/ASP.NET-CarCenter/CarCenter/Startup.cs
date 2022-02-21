@@ -38,6 +38,7 @@ namespace CarCenter
                      options.Password.RequireNonAlphanumeric = false;
                      options.Password.RequireUppercase = false;
                  })
+                 .AddRoles<IdentityRole>()
                  .AddEntityFrameworkStores<CarCenterDbContext>();
 
             services.AddControllersWithViews();

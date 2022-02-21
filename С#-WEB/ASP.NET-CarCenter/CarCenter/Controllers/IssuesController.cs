@@ -59,7 +59,7 @@ namespace CarCenter.Controllers
             return View(issues);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public IActionResult FixIssue(string id)
         {
             issueService.FixIssue(id);

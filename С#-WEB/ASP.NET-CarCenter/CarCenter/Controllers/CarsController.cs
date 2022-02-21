@@ -67,7 +67,7 @@ namespace CarCenter.Controllers
             
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(string id) 
         {
             try
